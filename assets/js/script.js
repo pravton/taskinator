@@ -232,9 +232,64 @@ var saveTasks = function () {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
+var loadTasks = function () {
+    //retrive the saved object from local storage and save it to tasks
+    var loadedTasks = localStorage.getItem("tasks", tasks);
+    tasks = loadedTasks;
+    //convert the string into arrays
+    tasks =JSON.parse(tasks);
+    //create the taks based on the retrived data
+    for (var i = 0; i < tasks.length; i++) {
+        taskIdCounter = tasks[i].id;
+        //create a list item
+        var listItemEl = document.createElement("li");
+        //give a class name
+        listItemEl.className = "task-item";
+        //set attributes
+        listItemEl.setAttribute("data-task-id", taskIdCounter);
+        
+        //create a div
+        var taskInfoEl = document.createElement("div");
+        //giv it a class name
+        taskInfoEl.className = "task-info";
+        //HTML content
+        taskInfoEl.innerHTML = "<h3 class='task-name'>" + tasks[i].name + "</h3><span class='task-type'>" + tasks[i].type + "</span>";
+        //append taskInfo to taskItemEl
+        listItemEl.appendChild(taskInfoEl);
+        //create the action for tasks
+        var taskActionsEl = createTaskActions(tasks[i].id);
+        //append tasks actions to listItemEl
+        listItemEl.appendChild(taskActionsEl);
+    
+        //chec with if statements and append them accordingly
+        if (tasks[i].status === "to do") {
+            listItemEl.querySelector("select[name='status-change']").selectedIndex = 0;
+            tasksToDoEl.appendChild(listItemEl);
+        }
+        else if (tasks[i].status === "in progress") {
+            listItemEl.querySelector("select[name='status-change']").selectedIndex = 1;
+            tasksInProgressEl.appendChild(listItemEl);
+        }
+        else if (tasks[i].status === "completed") {
+            listItemEl.querySelector("select[name='status-change']").selectedIndex = 2;
+            tasksCompleted.appendChild(listItemEl);
+        }
+
+        //increase the task counter
+        taskIdCounter++;
+        console.log(listItemEl);
+    }
+    
+    
+};
+
+
+
 pageContentEl.addEventListener("click", taskButtonHandler);
 
 pageContentEl.addEventListener("change", taskStatusChangeHandler);
+
+loadTasks();
 
 
 

@@ -3,9 +3,9 @@
 }
 
 :root {
-  --primary: #44e9ff;
-  --secondary: #497980;
-  --tertiary: rgb(192, 246, 253);
+  --primary: #F0E68C;
+  --secondary: #1E2952;
+  --tertiary: #ACE1AF; 
   --grey: #333;
   font-size: 62.5%;
 }
@@ -18,7 +18,10 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6, p {
+  font-family: 'Rubik', Verdana, Geneva, Tahoma, sans-serif;
 }
 
 header {
@@ -50,7 +53,7 @@ form input {
   padding: 12px;
   width: 100%;
   font-size: 2.2rem;
-  border: 2px solid var(--grey);
+  box-shadow: 0 0 2px var(--primary);
   border-radius: 12px;
 }
 
@@ -96,17 +99,17 @@ footer {
 
 .task-list {
   list-style: none;
-  padding: 15px;
+  padding: 20px;
   height: calc(100% - 50px);
   background: rgb(196, 196, 196);
   border-radius: 12px;
-  border: 2px solid var(--grey);
+  box-shadow: 0 0 4px var(--grey);
 }
 
 .task-item {
   color: var(--grey);
   padding: 15px 15px;
-  border: 2px solid var(--grey);
+  box-shadow: 0 0 2px var(--grey);
   background: var(--tertiary);
   border-radius: 12px;
   margin-bottom: 20px;
@@ -144,7 +147,7 @@ footer {
   border-radius: 12px;
   position: relative;
   top: -3px;
-  box-shadow: 0 3px var(--grey);
+  box-shadow: 0 2px var(--grey);
 }
 
 .btn:hover {
@@ -159,7 +162,7 @@ footer {
 .edit-btn,
 .delete-btn {
   font-size: 1.4rem;
-  padding: 5px 7px;
+  padding: 10px 10px;
   margin: 3px;
   background: var(--secondary);
   color: #fff;
@@ -174,7 +177,7 @@ footer {
   width: 100%;
   max-width: 100%;
   margin: 0;
-  border: 2px solid var(--grey);
+  box-shadow: 0 0 2px var(--grey);
   border-radius: 12px;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -188,7 +191,9 @@ footer {
 
 .select-status {
   font-size: 1.4rem;
-  padding: 4px 28px 4px 4px;
+  padding: 10px 30px 10px 10px;
+  margin-left: 5px;
+  margin-bottom: 4px;
   width: auto;
 }
 
@@ -205,7 +210,7 @@ footer {
 .select-dropdown:focus,
 .select-status:focus {
   border-color: #aaa;
-  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+  box-shadow: 0 0 1px 1px rgba(59, 153, 252, 0.7);
   box-shadow: 0 0 0 3px -moz-mac-focusring;
   color: #222;
   outline: none;
